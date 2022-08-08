@@ -1,5 +1,6 @@
+import { doesNotReject } from "assert";
 import express from "express";
-import { ASIA, OCEANIA } from "./continents";
+import { AFRICA, ANTARCTICA, ASIA, EUROPE, NORTHAMERICA, OCEANIA, SOUTHAMERICA } from "./continents";
 import filePath from "./filePath";
 
 const app = express();
@@ -9,12 +10,32 @@ app.get("/", (req, res) => {
   res.sendFile(pathToFile);
 });
 
+app.get("/africa", (req, res) => {
+  res.json(AFRICA);
+});
+
+app.get("/antarctica", (req, res) => {
+  res.json(ANTARCTICA);
+});
+
 app.get("/asia", (req, res) => {
   res.json(ASIA);
 });
 
+app.get("/europe", (req, res) => {
+  res.json(EUROPE);
+});
+
+app.get("/north-america", (req, res) => {
+  res.json(NORTHAMERICA);
+});
+
 app.get("/oceania", (req, res) => {
   res.json(OCEANIA);
+});
+
+app.get("/south-america", (req, res) => {
+  res.json(SOUTHAMERICA);
 });
 
 // using 4000 by convention, but could be changed
